@@ -12,6 +12,12 @@ const Hero = () =>  {
         height: "100vh",
         display: "flex",
         alignItems: "center",
+        [theme.breakpoints.up('xs')]: { // <= mobile
+            paddingTop: "100px"
+        },
+        [theme.breakpoints.up('md')]: { //>=mobile
+            paddingTop: "0px"
+        }
     }))
     const StyleadImg = styled("img")(({theme})=>({
         width: "80%",
@@ -39,13 +45,13 @@ const Hero = () =>  {
                     <Typography color="primary.contrastText" variant="h3"  textAlign="center">I'm Backend Developer</Typography>
                     <Grid container  display="flex" justifyContent="center" spacing={3} pt={3}>  
                         <Grid size={{xs:12, md: 4 }} display="flex" justifyContent="center" >  
-                            <StyledButton>
+                            <StyledButton onClick={()=>console.log("download cv")}>
                                 <DownloadIcon />
                                 <Typography> Donwload CV </Typography>
                             </StyledButton>
                         </Grid>
                         <Grid size={{xs:12, md: 4}} display="flex" justifyContent="center">  
-                            <StyledButton>
+                            <StyledButton  onClick={()=>console.log("Contact Me")}>
                                 <EmailIcon/>
                                 <Typography>Contact Me</Typography>
                             </StyledButton>  
